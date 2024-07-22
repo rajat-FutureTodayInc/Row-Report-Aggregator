@@ -7,5 +7,5 @@ This contains two templates.
 
 
 2. Raw_input File ---> This file needs to be uploaded by the user if he wants to generate output for multiple inputs in a single excel file.
-                       The output for each inputs will be stored in seperate sheets. Sample input is shown in Raw_input file.
+                       The output for each inputs will be stored in seperate sheets.     Sample input is shown in raw_input_file1.xlsx file.
 Note- The columns that are required to group the data should be necessarily present in the raw_input file. Other columns will not affect the output. They may or may not be present.
