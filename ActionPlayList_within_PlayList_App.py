@@ -99,6 +99,7 @@ def ActionPlayList_within_PlayList(raw_data, L1, Play_ListID):
         drop_columns.remove('level_0')
     
     df.drop(columns=drop_columns, inplace=True)
+    df.sort_values(by = 'Watch_Time', ascending = False, inplace = True)
     
     return df
 
