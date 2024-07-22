@@ -78,6 +78,8 @@ def PlayList_within_L2(raw_data, L1, L2):
     df = pd.merge(piv_data_reset, data3, on='Play ListID', how='left')
     
     df.drop(columns=['index'], inplace=True)
+
+    df.sort_values(by = 'Watch_Time', ascending = False, inplace = True)
     
     return df
 
