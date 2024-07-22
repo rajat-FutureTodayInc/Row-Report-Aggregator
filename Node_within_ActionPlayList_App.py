@@ -97,7 +97,7 @@ def Node_in_ActionPlayList(raw_data, raw_input):
             pvt = Node_within_ActionPlayList(raw_data, row['L1 Category'], row['L2 Category'], row['Action PlayListID'])
             idx = row['Action PlayListID']
             sheet_name = f'Id {idx}'
-            pvt.to_excel(writer, sheet_name=sheet_name, index=True)
+            pvt.to_excel(writer, sheet_name=sheet_name, index=False)
             
     output.seek(0)
     return output
