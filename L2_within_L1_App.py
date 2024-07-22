@@ -63,6 +63,8 @@ def L2_within_L1(raw_data, L1):
 
     #merging the date column with the pivot table created so that we can have the latest date for all L2s
     df = pd.merge(piv_data_reset, data3, on='L2 Category', how='left')
+
+    df.sort_values(by = 'Watch_Time', ascending = False, inplace = True)
     
     return df
 
