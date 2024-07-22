@@ -86,6 +86,9 @@ def Node_within_ActionPlayList(raw_data, L1, L2, Action_PlayListID):
         df = df[cols]
 
     df.sort_values(by = 'Node_Watch_time_hr', ascending = False, inplace = True)
+    df['Completion Percent'] = df['Completion Percent'].round(1)
+    df['Node_Watch_time_hr'] = df['Node_Watch_time_hr'].round(1)
+    df['wt_view'] = df['wt_view'].round(1)
     
     return df
 
