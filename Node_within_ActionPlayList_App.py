@@ -9,13 +9,18 @@ import pandas as pd
 import numpy as np
 from io import BytesIO
 
+
+#Function that Aggregate the Nodes based on ActionPlayListId
 def Node_within_ActionPlayList(raw_data, L1, L2, Action_PlayListID):
     data1 = raw_data.copy()
-    
+
+    #Converting watch time from sec to hr
     data = data1.assign(Node_Watch_time_hr=data1['Node Watch Time'] / 3600)
+
+    #droping the rows having null completion%
     data = data.dropna(subset = ['Completion Percent'])
     
-    # Apply filters
+    # Applying filters
     if L1 != "All":
         data = data[data['L1 Category'] == L1]
     if L2 != "All":
@@ -59,17 +64,19 @@ def Node_within_ActionPlayList(raw_data, L1, L2, Action_PlayListID):
             'Node_Watch_time_hr': 'sum'
         }
     )
-    
+
+    #Handling the case for empty pivot table
     if(piv_data.shape[0] == 0):
         return piv_data
     
-        
+    #Assigning wt/view   
     piv_data = piv_data.assign(wt_view = np.where(piv_data['Node Views'] == 0, np.nan, (piv_data['Node_Watch_time_hr'] / piv_data['Node Views'])*60))
 
     
-    # Merge the pivot table with data3
+    # Merge the pivot table with latest position dataframe
     df = pd.merge(piv_data.reset_index(), data3, on='Node Id', how='left')
-    
+
+    #Assigning names to the PlayListIds if present
     if('Action PlayListID' in df.columns):
         #setting the name of actionPlayList corresponding to actionPlayListId
         actionplay_list_dict = data.set_index('Action PlayListID')['Action PlayList'].to_dict()
@@ -80,7 +87,7 @@ def Node_within_ActionPlayList(raw_data, L1, L2, Action_PlayListID):
     
     return df
 
-
+#Function that returns an output aggregated data excel file when user gives the raw_input excel file as input instead of manually giving input 
 def Node_in_ActionPlayList(raw_data, raw_input):
     output = BytesIO()
     with pd.ExcelWriter(output, engine='openpyxl') as writer:
@@ -93,6 +100,8 @@ def Node_in_ActionPlayList(raw_data, raw_input):
     output.seek(0)
     return output
 
+
+#Main function that generates a streamlit app that returns the aggregated Node within an ActionPlayListId
 def main():
     # Streamlit app
     st.title("Node within ActionPlayList Analyzer")
