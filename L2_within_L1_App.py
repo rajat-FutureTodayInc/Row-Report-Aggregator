@@ -77,7 +77,7 @@ def L2_in_L1(raw_data, raw_input):
         for index, row in raw_input.iterrows():
             pvt = L2_within_L1(raw_data, row['L1 Category'])             #generates the aggregated data for L1 present in each row 
             sheet_name = row['L1 Category']                              #stores the aggregated data for each L1 in different sheets named as the L1 Category
-            pvt.to_excel(writer, sheet_name=sheet_name, index=True)
+            pvt.to_excel(writer, sheet_name=sheet_name, index=False)
     output.seek(0)
     return output
 
