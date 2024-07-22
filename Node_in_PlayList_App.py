@@ -110,7 +110,7 @@ def Node_within_PlayList(raw_data, L1, Play_list_id):
         for index, row in data3.iterrows():
             pvt = Node_inside_PlayList(data1, L1, Play_list_id, row['Action PlayListID'])
             sheet_name = f'Id {row["Action PlayListID"]}'                         #storing each aggregated data for a ActionPlaylistId in different sheets
-            pvt.to_excel(writer, sheet_name=sheet_name, index=True)
+            pvt.to_excel(writer, sheet_name=sheet_name, index=False)
     output.seek(0)
     return output
 
