@@ -1,7 +1,7 @@
 This contains two templates.
 
 1. Raw_data File --> This file has to be necessarily uploaded by the user to run the automation. 
-                     This is the row-report file.        Sample file is shown in the Raw_Data.csv.
+                     This is the row-report file.        Sample file is shown in the Raw Data.csv.
 
 
 
