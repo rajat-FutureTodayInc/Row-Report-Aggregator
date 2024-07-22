@@ -65,6 +65,8 @@ def L2_within_L1(raw_data, L1):
     df = pd.merge(piv_data_reset, data3, on='L2 Category', how='left')
 
     df.sort_values(by = 'Watch_Time', ascending = False, inplace = True)
+    df['Watch_Time'] = df['Watch_Time'].round(1)
+    df['awd'] = df['awd'].round(1)
     
     return df
 
