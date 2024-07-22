@@ -80,6 +80,8 @@ def PlayList_within_L2(raw_data, L1, L2):
     df.drop(columns=['index'], inplace=True)
 
     df.sort_values(by = 'Watch_Time', ascending = False, inplace = True)
+    df['Watch_Time'] = df['Watch_Time'].round(1)
+    df['wt_uu'] = df['wt_uu'].round(1)
     
     return df
 
