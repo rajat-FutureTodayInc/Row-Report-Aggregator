@@ -100,7 +100,7 @@ def ActionPlayList_within_PlayList(raw_data, L1, Play_ListID):
     
     df.drop(columns=drop_columns, inplace=True)
     df.sort_values(by = 'Watch_Time', ascending = False, inplace = True)
-    df['Watch_Time] = df['Watch_Time'].round(1)
+    df['Watch_Time'] = df['Watch_Time'].round(1)
     df['awd'] = df['awd'].round(1)
     
     return df
