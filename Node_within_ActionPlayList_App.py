@@ -85,7 +85,7 @@ def Node_within_ActionPlayList(raw_data, L1, L2, Action_PlayListID):
         cols.insert(piv_data.shape[1]-11, cols.pop(cols.index('ActionPlay_List')))
         df = df[cols]
 
-    df.sort_values(by = 'Node_Watch_Time_hr', ascending = False, inplace = True)
+    df.sort_values(by = 'Node_Watch_time_hr', ascending = False, inplace = True)
     
     return df
 
