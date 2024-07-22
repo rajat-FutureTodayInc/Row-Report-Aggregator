@@ -90,7 +90,7 @@ def PlayList_in_L2(raw_data, raw_input):
         for index, row in raw_input.iterrows():
             pvt = PlayList_within_L2(raw_data, row['L1 Category'], row['L2 Category'])
             sheet_name = row['L2 Category']
-            pvt.to_excel(writer, sheet_name=sheet_name, index=True)
+            pvt.to_excel(writer, sheet_name=sheet_name, index=False)
     output.seek(0)
     return output
 
