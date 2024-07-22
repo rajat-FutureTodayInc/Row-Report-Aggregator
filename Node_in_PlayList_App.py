@@ -83,6 +83,9 @@ def Node_inside_PlayList(raw_data, L1, Play_list_id, Action_PlayListID):
         cols = list(df.columns)
         cols.insert(df.shape[1] - 9, cols.pop(cols.index('ActionPlay_List')))
         df = df[cols]    
+
+
+    df.sort_values(by = 'Node_Watch_Time', ascending = False, inplace = True)
     
     return df
 
